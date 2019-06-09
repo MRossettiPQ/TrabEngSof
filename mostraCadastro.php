@@ -1,15 +1,8 @@
 <html>
 <body bgcolor=#d8dfea>
     <?php
-        //Chamado do cabeçalho da pagina
-        include 'setupCabecalhoLogin.php';
-        echo "</br></br>";
-        //Chamado do cabeçalho da pagina
-        include 'setupCabecalho.php';
-        //Chamado do cabeçalho da pagina
-        include 'setupPagina.php';
-        //Chamado do conexão da pagina
-        include 'setupConectaBanco.php';
+        //Chamado do configuração da pagina 
+        include 'setup/setupConfig.php';
         echo "
             <center>
             <p> Criação de Usuario <p>

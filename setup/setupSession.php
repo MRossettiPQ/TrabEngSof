@@ -5,7 +5,7 @@
 
         if(!isset($_SESSION['idProfiles']))
         {
-            $_SESSION['idProfiles'] = '4';  //Para iniciar uma sessão sem login
+            $_SESSION['idProfiles'] = '0';  //Para iniciar uma sessão sem login
             $_SESSION['idUser'] = '0';      //Usuario nulo do banco de dados
         }
     }

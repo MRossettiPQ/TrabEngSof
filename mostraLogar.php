@@ -2,9 +2,9 @@
     <body bgcolor=#d8dfea>
         <?php
             //Chamado do configuração da pagina 
-            include 'setup/setupConfig.php'
+            include 'setup/setupConfig.php';
 
-            echo "</br></br></br></br></br></br>
+            echo"</br></br></br></br></br></br>
                 <center>
                     <table border='Aviso'>
                             <tr>
