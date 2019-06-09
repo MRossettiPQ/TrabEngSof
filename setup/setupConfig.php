@@ -1,6 +1,7 @@
 <?php
             //Chamado do cabeçalho Login da pagina 
             include 'setupCabecalhoLogin.php';
+            include 'setupSESSION.php';
             echo "</br></br>";
             //Chamado do cabeçalho da pagina
             include 'setupCabecalho.php';

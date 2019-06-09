@@ -8,7 +8,7 @@
             <nav id='menuLogin'>     
                     <ul>
                         <li><a href='mostraPrincipal.php'>HOME</a></li>
-                        <li><a href='mostraLivros.php'>Listar Jogos</a></li>
+                        <li><a href='mostraBiblioteca.php'>Listar Livros</a></li>
                         <li><a href='mostraCadastroJogo.php'>Sugerir</a></li>
                         <li><a href='mostraUsuarioListarROOT.php'>Lista Usuarios</a></li>
                         <li><a href='mostraJogoROOT.php'>Lista Jogos</a></li>
@@ -24,9 +24,9 @@
             <nav id='menuLogin'> 
                 <ul>
                     <li><a href='mostraPrincipal.php'>HOME</a></li>
-                    <li><a href='mostraLivros.php'>Listar Livros</a></li>
-                    <li><a href='mostraLivros.php'>Meu Livros</a></li>
-                    <li><a href='mostraLivros.php'>Meu Perfil</a></li> 
+                    <li><a href='mostraBiblioteca.php'>Listar Livros</a></li>
+                    <li><a href='mostraBiblioteca.php'>Meu Livros</a></li>
+                    <li><a href='mostraBiblioteca.php'>Meu Perfil</a></li> 
                     <li><input name='Pesquisado' label='Pesquisado' type = 'text' style = 'width:130px; height:25px;'><input type='submit' value='Procure' style = 'width:70px; height:25px;'></li> 
                 </ul>
             </nav>
@@ -39,7 +39,7 @@
             <nav id='menuLogin'>
                 <ul>            
                     <li><a href='mostraPrincipal.php'>HOME</a></li>
-                    <li><a href='mostraLivros.php'>Listar Livros</a></li>
+                    <li><a href='mostraBiblioteca.php'>Listar Livros</a></li>
                     <li><input name='Pesquisado' label='Pesquisado' type = 'text' style = 'width:130px; height:25px;'><input type='submit' value='Procure' style = 'width:70px; height:25px;'></li> 
                 </ul>
             </nav>
@@ -53,7 +53,7 @@
         <nav id='menuLogin'>
             <ul>            
                 <li><a href='mostraPrincipal.php'>HOME</a></li>
-                <li><a href='mostraLivros.php'>Listar Livros</a></li>
+                <li><a href='mostraBiblioteca.php'>Listar Livros</a></li>
                 <li><input name='Pesquisado' label='Pesquisado' type = 'text' style = 'width:130px; height:25px;'><input type='submit' value='Procure' style = 'width:70px; height:25px;'></li> 
             </ul>
         </nav>
