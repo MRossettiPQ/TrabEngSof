@@ -8,7 +8,7 @@
 
             $query = "SELECT idLivro, nomeLivro FROM Livro";
             $result = mysqli_query($link, $query);
-            if(mysqli_num_rows($result) > 0)
+            if(empty($result) === FALSE)
             {
                 echo "
                 <table border='tabuleiroLivrosExistentes' bgcolor=#afbdd4>
@@ -21,7 +21,7 @@
                                     <tr>
                                         <td style='width:148px;height:218px;'><a href='mostraJogo.php?id=".$idLivro."'>
                                             <center>        
-                                                <img src='Imagens/Jogos/".$nomeLivro.".jpg' alt='Capa' style='width:148px;height:218px;'>
+                                                <img src='idVisual/Livros/".$nomeLivro.".jpg' alt='Capa' style='width:148px;height:218px;'>
                                             </center>    
                                         </td>
                                     </tr>
