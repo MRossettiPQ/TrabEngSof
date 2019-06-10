@@ -1,7 +1,7 @@
 <?php
     //Chamado do conexão da pagina
-    include 'setupSESSION.php';
-    include 'setupConectaBanco.php';
+    include 'setup/setupSESSION.php';
+    include 'setup/setupConectaBanco.php';
     if((empty($_POST['loginNovo'])) || (empty($_POST['senhaNova'])) || (empty($_POST['nomeNovo']))|| (empty($_POST['nascimentoNovo']))|| (empty($_POST['emailNovo'])))
     {        
         echo "<script>
@@ -17,9 +17,8 @@
         $pEmailNovo = $_POST['emailNovo'];                                      //email do usuario
         $pNovaSenha = md5($_POST['senhaNova']);                                 //usar md5 na senha utilziada
         
-        $query_2 = "SELECT Usuario FROM Usuario WHERE nickUser='$newLogin'";    //procurar existencia de usuario
+        $query_2 = "SELECT usuario FROM usuario WHERE nickUser='$newLogin'";    //procurar existencia de usuario
         $result_2 = mysqli_query($link, $query_2);
-
         if(!mysqli_fetch_array($result_2))
         {
             $query_1 = "INSERT INTO Usuario (tipoUser, nickUser, passUser, nomeUser, nascUser, emailUser) VALUES ('2','$pNickUser','$pNovaSenha','$pNomeNovo','$pNascimentoNovo','$pEmailNovo')";

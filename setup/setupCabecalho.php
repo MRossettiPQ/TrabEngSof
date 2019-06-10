@@ -1,7 +1,7 @@
 <?php        
     if(isset ($_SESSION['idProfiles']) == true)
     {
-        if(($_SESSION['idProfiles'] == 1))
+        if(($_SESSION['idProfiles'] == 1)) //ADMIN
         {
             echo "
             <form name='formPesquisar' action='mostraPesquisa.php' method='post' >
@@ -17,7 +17,7 @@
             </nav>
             </form>";
         }
-        else if(($_SESSION['idProfiles'] == 2))
+        else if(($_SESSION['idProfiles'] == 2)) //USUARIO
         {
             echo "
             <form name='formPesquisar' action='mostraPesquisa.php' method='post' >
@@ -26,7 +26,7 @@
                     <li><a href='mostraPrincipal.php'>HOME</a></li>
                     <li><a href='mostraBiblioteca.php'>Listar Livros</a></li>
                     <li><a href='mostraBiblioteca.php'>Meu Livros</a></li>
-                    <li><a href='mostraBiblioteca.php'>Meu Perfil</a></li> 
+                    <li><a href='mostraUsuarioPainel.php'>Meu Perfil</a></li> 
                     <li><input name='Pesquisado' label='Pesquisado' type = 'text' style = 'width:130px; height:25px;'><input type='submit' value='Procure' style = 'width:70px; height:25px;'></li> 
                 </ul>
             </nav>

@@ -16,7 +16,7 @@
                 </center>
                 </br></br></br>
                 <center>
-                    <form name='formLogar' action='envioDados.php' method='post' >
+                    <form name='formLogar' action='envioLogin.php' method='post' >
                         <table border='CampoLogar'>
                             <tr>
                                 <td>

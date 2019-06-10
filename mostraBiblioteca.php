@@ -19,14 +19,14 @@
                             <td>
                                 <table border='livro".$nomeLivro."' bgcolor=#afbdd4>
                                     <tr>
-                                        <td style='width:148px;height:218px;'><a href='mostraJogo.php?id=".$idLivro."'>
+                                        <td style='width:148px;height:218px;'><a href='mostraLivro.php?idLivro=".$idLivro."'>
                                             <center>        
                                                 <img src='idVisual/Livros/".$nomeLivro.".jpg' alt='Capa' style='width:148px;height:218px;'>
                                             </center>    
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style='width:148px;'><a href='mostraJogo.php?id=".$idLivro."'>
+                                        <td style='width:148px;'><a href='mostraLivro.php?idLivro=".$idLivro."'>
                                             <center>        
                                                 ".$nomeLivro."
                                             </center>    
