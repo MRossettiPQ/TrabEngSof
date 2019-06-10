@@ -25,7 +25,6 @@
                 <ul>
                     <li><a href='mostraPrincipal.php'>HOME</a></li>
                     <li><a href='mostraBiblioteca.php'>Listar Livros</a></li>
-                    <li><a href='mostraBiblioteca.php'>Meu Livros</a></li>
                     <li><a href='mostraUsuarioPainel.php'>Meu Perfil</a></li> 
                     <li><input name='Pesquisado' label='Pesquisado' type = 'text' style = 'width:130px; height:25px;'><input type='submit' value='Procure' style = 'width:70px; height:25px;'></li> 
                 </ul>

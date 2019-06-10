@@ -1,7 +1,6 @@
 <?php
-    //Chamado do conexão da pagina
-    include 'setupSESSION.php';
-    include 'setupConectaBanco.php';
+    //Chamado do configuração da pagina 
+    include 'setup/setupConfig.php';
 
     if((empty($_POST['nomeJogo'])) || empty($_POST['jogoEstudio']) || (empty($_POST['jogoLancado'])) || (empty($_POST['jogoPlayers'])) || (empty($_POST['jogoTag']))|| (empty($_POST['jogoDesc']))|| (empty($_POST['jogoClass'])))
     {        
@@ -13,14 +12,14 @@
     else
     {
         $pIdUsuario = $_SESSION['idUser'];
-        $pNomeJogo = $_POST['nomeJogo'];
-        $pJogoLancado = $_POST['jogoLancado'];
-        $pJogoPlayers = $_POST['jogoPlayers'];
-        $pJogoTag = $_POST['jogoTag'];
-        $pJogoDesc = $_POST['jogoDesc'];
-        $pJogoClass = $_POST['jogoClass'];
-        $pIdEstudio = $_POST['jogoEstudio'];
-        $data = date("Y-m-d");
+
+        $pNomeLivro = $_POST['nomeLivro'];
+        $pEditoraLivro = $_POST['editoraLivro'];
+        $pDataLivro = $_POST['dataLivro'];
+        $pLocalLivro = $_POST['localLivro'];
+        $pTagLivro = $_POST['tagLivro'];
+        $pDescLivro = $_POST['descLivro'];
+        $pClassLivro = $_POST['classLivro'];
 
         // verifica se foi enviado um arquivo
         if (isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] == 0 ) 
@@ -41,7 +40,7 @@
                 // Cria um nome único para esta imagem
                 // Evita que duplique as imagens no servidor.
                 // Evita nomes com acentos, espaços e caracteres não alfanuméricos
-                $novoNome = $pNomeJogo.".".$extensao;
+                $novoNome = $pNomeLivro.".".$extensao;
         
                 // Concatena a pasta com o nome
                 $destino = 'idVisual/Livros/'.$novoNome;
@@ -49,10 +48,11 @@
                 // tenta mover o arquivo para o destino
                 if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) 
                 {
-                    $query2 = "INSERT INTO jogos 
-                            (nome_Jogo, dataLanca, players, descricao, tag, classificacao, FK_Usuario_id_Usuario, dataAddJogo, codLibera, nomeEstudio)
-                     VALUES ('$pNomeJogo','$pJogoLancado','$pJogoPlayers','$pJogoDesc','$pJogoTag','$pJogoClass','$pIdUsuario','$data', '0', '$pIdEstudio')";
-                    
+                    $query2 = "INSERT INTO livro 
+                            (nomeLivro, lancLivro, contLivro, descLivro, localLivro, classLivro, editoraLivro, generoLivro)
+                     VALUES ($pNomeLivro, $pDataLivro, NULL, $pDescLivro, $pLocalLivro, $pClassLivro, $pEditoraLivro, $pTagLivro)";
+
+
                     if($link->query($query2) === TRUE)
                     {
                     }

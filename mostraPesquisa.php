@@ -6,7 +6,7 @@
 
             $pPesquisado = $_POST['Pesquisado']; //Nome do livro pesquisado
 
-            $query = "SELECT id_Jogo, nome_Jogo, codLibera FROM jogos WHERE codLibera='1' AND jogos.nome_Jogo LIKE '%".$pPesquisado."%'";
+            $query = "SELECT idLivro, nomeLivro FROM livro WHERE nomeLivro LIKE '%".$pPesquisado."%'";
         
             $result = mysqli_query($link, $query);
             if(empty($result) === FALSE)
@@ -15,13 +15,13 @@
                 echo "
                 <table border='tabuleiroLivrosExistentes' bgcolor=#afbdd4>
                     <tr>";
-                while (list($idLivro, $nomeLivro, $tag ) = mysqli_fetch_row($result))
+                while (list($idLivro, $nomeLivro) = mysqli_fetch_row($result))
                 {
                             echo "
                             <td>
                                 <table border='livro".$nomeLivro."' bgcolor=#afbdd4>
                                     <tr>
-                                        <td style='width:148px;height:218px;'><a href='mostraJogo.php?id=".$idLivro."'>
+                                        <td style='width:148px;height:218px;'><a href='mostraLivro.php?idLivro=".$idLivro."'>
                                             <center>        
                                                 <img src='idVisual/Livros/".$nomeLivro.".jpg' alt='Capa' style='width:148px;height:218px;'>
                                             </center>    
