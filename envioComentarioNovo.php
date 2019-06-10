@@ -1,7 +1,6 @@
 <?php
     //Chamado do conexão da pagina
-    include 'setup/setupSESSION.php';
-    include 'setup/setupConectaBanco.php';
+    include 'setup/setupConfig.php';
 
     if((empty($_POST["comentarioNovo"])) || (empty($_POST["notaNova"])))
     {        
@@ -27,7 +26,7 @@
         {
             echo "<br>"."Erro: ".$query."<br>".$link->error;
         }
-        $link->close();        
+        $link->close();  
         echo "<script>
             window.history.back();
         </script>";

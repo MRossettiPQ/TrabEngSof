@@ -12,7 +12,7 @@
             $result_1 = mysqli_query($link, $query_1);
 
             //QUERY INFORMAÇÕES COMENTARIOS
-            $query_3 = "SELECT FK_Usuario_idUser, idComenta, contComenta, notaComenta, dataComenta FROM comentarios WHERE FK_Livro_idLivro='$pIdLivro'";
+            $query_3 = "SELECT FK_Usuario_idUser, idComenta, contComenta, notaComenta, dataComenta FROM comenta WHERE FK_Livro_idLivro='$pIdLivro'";
             $result_3 = mysqli_query($link, $query_3);
 
             while (list($nomeLivro, $lancLivro, $contLivro, $descLivro, $localLivro, $editoraLivro, $classLivro, $generoLivro) = mysqli_fetch_row($result_1))
@@ -118,7 +118,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td style='width:120px;height:325px;'>
+                                                    <td style='width:120px;height:278px;'>
 
                                                     </td>
                                                 </tr>        
@@ -144,7 +144,7 @@
                                 <table border='comentarioNovo' bgcolor=#afbdd4>
                                     <tr>
                                         <td style='width:960px;height:62px;'>
-                                            <input name='comentarioNovo' value= 'Diga oque pensa sobre este jogo e de sua nota'type='Text' align='center' style='width:960px;height:62px;' margin='0' >
+                                            <input name='comentarioNovo' value= 'Diga oque pensa sobre este livro e de sua nota'type='Text' align='center' style='width:960px;height:62px;' margin='0' >
                                         </td>
                                         <td style='width:70px;height:62px;'>
                                             <center>
@@ -154,7 +154,7 @@
                                         <td style='width:70px;height:62px;'>
                                             <input name='notaNova' value='0' type='number' align='center' style='width:70px;height:62px;'>
                                         </td>";
-                                        if(($_SESSION['tipoUser'] == 3)||($_SESSION['tipoUser'] == 2)||($_SESSION['tipoUser'] == 1))
+                                        if(($_SESSION['idProfiles'] == 2)||($_SESSION['idProfiles'] == 1))
                                         {
                                             echo "
                                             <td style='width:80px;height:62px;'>

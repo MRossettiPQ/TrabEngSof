@@ -8,10 +8,10 @@
             <nav id='menuLogin'>     
                     <ul>
                         <li><a href='mostraPrincipal.php'>HOME</a></li>
-                        <li><a href='mostraBiblioteca.php'>Listar Livros</a></li>
-                        <li><a href='mostraCadastroJogo.php'>Sugerir</a></li>
-                        <li><a href='mostraUsuarioListarROOT.php'>Lista Usuarios</a></li>
-                        <li><a href='mostraJogoROOT.php'>Lista Jogos</a></li>
+                        <li><a href='mostraBiblioteca.php'>Biblioteca</a></li>
+                        <li><a href='mostraCadastroLivro.php'>Adicionar Livro</a></li>
+                        <li><a href='mostraListarUsuario.php'>Listar Usuarios</a></li>
+                        <li><a href='mostraListarLivro.php'>Listar Livros</a></li>
                         <li><input name='Pesquisado' label='Pesquisado' type = 'text' style = 'width:130px; height:25px;'><input type='submit' value='Procure' style = 'width:70px; height:25px;'></li> 
                     </ul>
             </nav>

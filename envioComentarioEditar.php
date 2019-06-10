@@ -1,7 +1,7 @@
 <?php
-    //Chamado do conexão da pagina
-    include 'setupSESSION.php';
-    include 'setupConectaBanco.php';
+    //Chamado do cabeçalho Login da pagina 
+    include 'setup/setupConfig.php';
+
     $pIdComentario = $_GET["idComentario"];
     
     if((empty($_POST["comentarioNovo"])) || (empty($_POST["notaNova"])))
@@ -16,27 +16,27 @@
         $pComentario = $_POST["comentarioNovo"];
         $pNota = $_POST["notaNova"];
 
-        $query = "UPDATE comentarios SET comentario='$pComentario',nota='$pNota' WHERE id_Comentario=$pIdComentario";
-        //QUERY INFORMAÇÕES COMENTARIOS
-
-        $query_1 = "SELECT FK_Jogos_id_Jogo FROM comentarios WHERE id_Comentario='$pIdComentario'";
-        $result_1 = mysqli_query($link, $query_1);
+        $query_1 = "UPDATE comenta SET contComenta='$pComentario',notaComenta='$pNota' WHERE idComenta=$pIdComentario";
+        
+        //QUERY INFORMAÇÕES COMENTARIO
+        $query_2 = "SELECT FK_Livro_idLivro FROM comenta WHERE idComenta='$pIdComentario'";
+        $result_2 = mysqli_query($link, $query_2);
 
         //percorrimento das linhas retornadas pela query
-        while (list($FK_Jogos_id_Jogo) = mysqli_fetch_row($result_1))
+        while (list($FK_Livro_idLivro) = mysqli_fetch_row($result_2))
         {  
-            $pIdJogo = $FK_Jogos_id_Jogo;
-            if($link ->query($query) === TRUE)
+            $pIdLivro = $FK_Livro_idLivro;
+            if($link ->query($query_1) === TRUE)
             {
                 /*echo "Inclusão feita com sucesso";*/
             }
             else
             {
-                echo "<br>"."Erro: ".$query."<br>".$link->error;
+                echo "<br>"."Erro: ".$query_1."<br>".$link->error;
             }
             $link->close();        
             echo "<script>
-                window.location.href = 'mostraJogo.php?id=".$pIdJogo."';
+                window.location.href = 'mostraLivro.php?idLivro=".$pIdLivro."';
             </script>";
         }
     }

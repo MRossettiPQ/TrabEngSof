@@ -1,21 +1,13 @@
 <html>
 <body bgcolor=#d8dfea>
     <?php
-        //Chamado do cabeçalho da pagina
-        include 'setupCabecalhoLogin.php';
-        echo "</br></br>";
-        //Chamado do cabeçalho da pagina
-        include 'setupCabecalho.php';
-        include 'setupCabecalhoCadastro.php';
-        //Chamado do cabeçalho da pagina
-        include 'setupPagina.php';
-        //Chamado do conexão da pagina
-        include 'setupConectaBanco.php';
+        //Chamado do configuração da pagina 
+        include 'setup/setupConfig.php';
         echo "
             <center>
-            <p> Sugestão de Jogo <p>
+            <p> Sugestão de Livro <p>
 
-            <form name='criarUsuario'  enctype='multipart/form-data'  action='envioJogoCriar.php' method='post' >
+            <form name='criarUsuario'  enctype='multipart/form-data'  action='envioLivroNovo.php' method='post' >
                 <table border='formularioCriarJogo' bgcolor=#afbdd4>
                     <tr>
                         <td>
@@ -25,7 +17,7 @@
                                         <center><b>Titulo</b></center> 
                                     </td>
                                     <td style ='width:630px; height:50px;'>
-                                        <center><input name='nomeJogo' value= 'Qual o titulo que você irá sugerir'type='Text' align='center' style='width:630px;height:50px;'></center> 
+                                        <center><input name='nomeLivro' value= 'Qual o titulo que você irá sugerir'type='Text' align='center' style='width:630px;height:50px;'></center> 
                                      </td>
                                 <tr>
                             </table>
@@ -36,11 +28,11 @@
                             <table border='dadosJogo' bgcolor=#afbdd4>
                                 <tr>
                                     <td style ='width:187px; height:45px;'>
-                                        <center><b>Estudio</b></center> 
+                                        <center><b>Editora</b></center> 
                                     </td>
                                     <td style ='width:187px; height:45px;'>
                                         <center>
-                                            <input name='jogoEstudio' type='text' align = 'center' style ='width:187px; height:45px;' align='center'>
+                                            <input name='editoraLivro' type='text' align = 'center' style ='width:187px; height:45px;' align='center'>
                                         </center> 
                                     </td>
                                     <td style ='width:187px; height:45px;'>
@@ -48,17 +40,17 @@
                                     </td>
                                     <td style ='width:187px; height:45px;'>
                                         <center>         
-                                            <input name='jogoLancado' type='date' align = 'center' style ='width:187px; height:30px;' align='center'>
+                                            <input name='dataLivro' type='date' align = 'center' style ='width:187px; height:30px;' align='center'>
                                         </center> 
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style ='width:187px; height:45px;'>
-                                        <center><b>Maximo de Jogadores</b></center> 
+                                        <center><b>Localidade</b></center> 
                                     </td>
                                     <td style ='width:187px; height:45px;'>
                                         <center>     
-                                            <input name='jogoPlayers' type='number' align = 'center' style ='width:187px; height:45px;'>
+                                            <input name='localLivro' type='number' align = 'center' style ='width:187px; height:45px;'>
                                         </center> 
                                     </td>
                                     <td style ='width:187px; height:45px;'>
@@ -66,7 +58,7 @@
                                     </td>
                                     <td style ='width:187px; height:45px;'>
                                         <center>         
-                                            <input name='jogoTag' type='text' align = 'center' style ='width:187px; height:45px;'>
+                                            <input name='tagLivro' type='text' align = 'center' style ='width:187px; height:45px;'>
                                         </center> 
                                     </td>
                                 </tr>                               
@@ -83,7 +75,7 @@
                                 <tr>
                                 <tr>
                                     <td style ='width:765px; height:100px;'>
-                                        <center><textarea cols='30' rows='5' name='jogoDesc' wrap='hard' value= 'Qual o titulo que você irá sugerir'type='Text' align='center' style='width:765px;height:100px;'></textarea></center> 
+                                        <center><textarea cols='30' rows='5' name='descLivro' wrap='hard' value= 'Qual o titulo que você irá sugerir'type='Text' align='center' style='width:765px;height:100px;'></textarea></center> 
                                     </td>
                                 <tr>
                             </table>
@@ -97,7 +89,7 @@
                                         <center><b>Classicação indicativa</b></center> 
                                     </td>
                                     <td style ='width:380px; height:35px;'>
-                                        <center><input name='jogoClass' value= '0'type='number' align='center' style='width:378px;height:35px;'></center> 
+                                        <center><input name='classLivro' value= '0'type='number' align='center' style='width:378px;height:35px;'></center> 
                                     </td>
                                 <tr>
                             </table>

@@ -1,7 +1,7 @@
 <?php
-    //Chamado do conexão da pagina
-    include 'setup/setupSESSION.php';
-    include 'setup/setupConectaBanco.php';
+    //Chamado do configuração da pagina 
+    include 'setup/setupConfig.php';
+    
     if((empty($_POST['loginNovo'])) || (empty($_POST['senhaNova'])) || (empty($_POST['nomeNovo']))|| (empty($_POST['nascimentoNovo']))|| (empty($_POST['emailNovo'])))
     {        
         echo "<script>
