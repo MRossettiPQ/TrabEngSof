@@ -27,6 +27,20 @@
                         <td>
                             <table border='dadosJogo' bgcolor=#afbdd4>
                                 <tr>
+                                    <td style ='width:130px; height:50px;'>
+                                        <center><b>Autor</b></center> 
+                                    </td>
+                                    <td style ='width:630px; height:50px;'>
+                                        <center><input name='autorLivro' value= 'Qual o titulo que você irá sugerir'type='Text' align='center' style='width:630px;height:50px;'></center> 
+                                    </td>
+                                <tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table border='dadosJogo' bgcolor=#afbdd4>
+                                <tr>
                                     <td style ='width:187px; height:45px;'>
                                         <center><b>Editora</b></center> 
                                     </td>
@@ -50,7 +64,7 @@
                                     </td>
                                     <td style ='width:187px; height:45px;'>
                                         <center>     
-                                            <input name='localLivro' type='number' align = 'center' style ='width:187px; height:45px;'>
+                                            <input name='localLivro' type='text' align = 'center' style ='width:187px; height:45px;'>
                                         </center> 
                                     </td>
                                     <td style ='width:187px; height:45px;'>
@@ -96,6 +110,20 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>
+                            <table border='dadosJogo' bgcolor=#afbdd4>
+                                <tr>
+                                    <td style ='width:380px; height:35px;'>
+                                        <center><b>Custo diaria</b></center> 
+                                    </td>
+                                    <td style ='width:380px; height:35px;'>
+                                        <center><input name='custoLivro' value= '0'type='number' align='center' style='width:378px;height:35px;'></center> 
+                                    </td>
+                                <tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>        
                             <table border='dadosJogo' bgcolor=#afbdd4>
                                 <tr>
@@ -104,6 +132,20 @@
                                     </td>
                                     <td style ='width:380px; height:45px;'>
                                     <input name='arquivo' type='file' />
+                                    </td>
+                                </tr>                       
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>        
+                            <table border='dadosJogo' bgcolor=#afbdd4>
+                                <tr>
+                                    <td style ='width:380px; height:45px;'>
+                                        <center><b>Livro</b></center>
+                                    </td>
+                                    <td style ='width:380px; height:45px;'>
+                                    <input name='arquivoEpub' type='file' />
                                     </td>
                                 </tr>                       
                             </table>

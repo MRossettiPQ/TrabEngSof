@@ -3,7 +3,7 @@
             include 'setupConectaBanco.php';
             //Chamado do cabeçalho Login da pagina 
             include 'setupCabecalhoLogin.php';
-            echo "</br></br>";
+            echo "</br>";
             //Chamado do cabeçalho da pagina
             include 'setupCabecalho.php';
 

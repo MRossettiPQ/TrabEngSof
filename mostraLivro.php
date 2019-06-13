@@ -8,14 +8,14 @@
             $pIdLivro = $_GET['idLivro'];               //Enviado pelo formulario da pagina mostraBiblioteca.php
 
             //QUERY INFORMAÇÕES LIVRO
-            $query_1 = "SELECT 	nomeLivro, lancLivro, contLivro, descLivro, localLivro, editoraLivro, classLivro, generoLivro FROM livro WHERE idLivro = '$pIdLivro'";
+            $query_1 = "SELECT 	nomeLivro, lancLivro, descLivro, localLivro, editoraLivro, classLivro, generoLivro, custoLivro, autorLivro FROM livro WHERE idLivro = '$pIdLivro'";
             $result_1 = mysqli_query($link, $query_1);
 
             //QUERY INFORMAÇÕES COMENTARIOS
             $query_3 = "SELECT FK_Usuario_idUser, idComenta, contComenta, notaComenta, dataComenta FROM comenta WHERE FK_Livro_idLivro='$pIdLivro'";
             $result_3 = mysqli_query($link, $query_3);
 
-            while (list($nomeLivro, $lancLivro, $contLivro, $descLivro, $localLivro, $editoraLivro, $classLivro, $generoLivro) = mysqli_fetch_row($result_1))
+            while (list($nomeLivro, $lancLivro, $descLivro, $localLivro, $editoraLivro, $classLivro, $generoLivro, $custoLivro, $autorLivro) = mysqli_fetch_row($result_1))
             {
                 //QUERY NOTAS
                 $query_2 = "SELECT notaComenta FROM comenta WHERE FK_Livro_idLivro='$pIdLivro'";
@@ -46,15 +46,24 @@
                                 <table border='cartaoJogo' bgcolor=#afbdd4>
                                     <tr>
                                         <td valign='top'>
-                                            <img src='idVisual/Livros/".$nomeLivro.".jpg' alt='Capa' style='width:323px;height:476px;'>
+                                            <img src='idVisual/Livros/".$nomeLivro.".jpg' alt='Capa' style='width:323px;height:484px;'>
                                         </td>
                                         <td valign='top' style='width:723px;height:476px;'>
                                             <table border='dadosJogo' bgcolor=#afbdd4>
                                                 <tr>
-                                                    <td style='width:720px;height:50px;'>
-                                                    <center><b>".$nomeLivro."</b></center>
+                                                    <td style='width:359px;height:60px;'>
+                                                        <table border='dadosJogo' bgcolor=#afbdd4>
+                                                            <tr>
+                                                                <td style='width:359px;height:60px;'>
+                                                                <center><b>".$nomeLivro."</b></center>
+                                                                </td>
+                                                                <td style='width:359px;height:60px;'>
+                                                                <center><b>".$autorLivro."</b></center>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
                                                     </td>
-                                                </tr>
+                                                </tr>        
                                                 <tr>
                                                     <td valign='top' style='width:720px;height:372px;'>
                                                         <table border='dadosBasico' bgcolor=#afbdd4>
@@ -106,7 +115,7 @@
                                         <td valign='top' style='width:123px;height:476px;'>
                                             <table border='lateralDireita' bgcolor=#afbdd4>
                                                 <tr>
-                                                    <td style='width:120px;height:50px;'>
+                                                    <td style='width:120px;height:60px;'>
                                                         <center>
                                                         <b>NOTA</b>
                                                         </center>
@@ -133,6 +142,117 @@
                                 </table>       
                             </td>
                         </tr>
+                        <tr>
+                            <td style='width:1185px;height:42px;'>
+                                <center><b>ALUGAR</b><center> 
+                            </td>
+                        </tr>";
+
+                        $query_7 = "SELECT dataAluguel, prazoAluguel FROM aluguel WHERE FK_Usuario_idUser = '$pIdUsuario' AND FK_Livro_idLivro = '$pIdLivro'";
+                        $result_7 = mysqli_query($link, $query_7);
+                        $pDataAtual = new DateTime();
+                        
+                        if (mysqli_num_rows($result_7) > 0) 
+                        {
+                            while (list($dataAluguel, $prazoAluguel) = mysqli_fetch_row($result_7))
+                            {
+                                //echo "$dataAluguel";
+                                //if($pData < $prazoAluguel)
+                                //Vai ter um erro bem nesse if, porque a data não esta considerando com o prazo.
+                                //O banco de dados armazena a data do aluguel e quantos dias foram alugados.
+                                if($pDataAtual < $dataAluguel) 
+                                {
+                                    //echo "Aluguel ACABOU"; //DEBUG PROFISSIONAL
+                                    echo "<tr>
+                                    <form name='comentar' action='envioAluguel.php?idLivro=".$pIdLivro."' method='post'>
+                                        <td style='width:1185px;height:62px;'>
+                                            <table border='comentarioCusto' bgcolor=#afbdd4>
+                                                <tr>
+                                                    <td style='width:960px;height:62px;'>
+                                                        <center>Este livro custa ".$custoLivro." reais por dia </center>
+                                                    </td>
+                                                    <td style='width:70px;height:62px;'>
+                                                        <center>
+                                                        <b>Dias</b>
+                                                        </center>
+                                                    </td>
+                                                    <td style='width:70px;height:62px;'>
+                                                        <input name='diasAluguel' value='0' type='number' align='center' style='width:70px;height:62px;'>
+                                                    </td>";
+                                                    if(($_SESSION['idProfiles'] == 2)||($_SESSION['idProfiles'] == 1))
+                                                    {
+                                                        echo "
+                                                        <td style='width:80px;height:62px;'>
+                                                        <input type='submit' value ='Alugar'align = 'center' margin='0' style='width:80px;height:62px;'>";
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "</form>
+                                                        <form name='comentar' action='mostraLogar.php' method='post'>
+                                                        <td style='width:80px;height:62px;'>
+                                                        
+                                                            <input type='submit' value ='Logar'align = 'center' margin='0' style='width:80px;height:62px;'>";
+                                                    }
+                                                    echo "</td>
+                                                    </form>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>";
+                                }
+                                else
+                                {
+                                    //echo "Aluguel VINGENTE"; //DEBUG PROFISSIONAL
+                                    echo"
+                                    <tr><form name='comentar' action='mostraPagina.php?idLivro=".$pIdLivro."' method='post'>
+                                        <td>
+                                                <input type='submit' value ='Ler o livro'align = 'center' margin='0' style='width:1185px;height:62px;'>
+                                        </td>
+                                    </tr></form>";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //echo "NÃO EXISTE ALUGUEL"; //DEBUG PROFISSIONAL
+                            echo "<tr>
+                            <form name='comentar' action='envioAluguel.php?idLivro=".$pIdLivro."' method='post'>
+                                <td style='width:1185px;height:62px;'>
+                                    <table border='comentarioCusto' bgcolor=#afbdd4>
+                                        <tr>
+                                            <td style='width:960px;height:62px;'>
+                                                <center>Este livro custa ".$custoLivro." reais por dia </center>
+                                            </td>
+                                            <td style='width:70px;height:62px;'>
+                                                <center>
+                                                <b>Dias</b>
+                                                </center>
+                                            </td>
+                                            <td style='width:70px;height:62px;'>
+                                                <input name='diasAluguel' value='0' type='number' align='center' style='width:70px;height:62px;'>
+                                            </td>";
+                                            if(($_SESSION['idProfiles'] == 2)||($_SESSION['idProfiles'] == 1))
+                                            {
+                                                echo "
+                                                <td style='width:80px;height:62px;'>
+                                                <input type='submit' value ='Alugar'align = 'center' margin='0' style='width:80px;height:62px;'>";
+                                            }
+                                            else
+                                            {
+                                                echo "</form>
+                                                <form name='comentar' action='mostraLogar.php' method='post'>
+                                                <td style='width:80px;height:62px;'>
+                                                
+                                                    <input type='submit' value ='Logar'align = 'center' margin='0' style='width:80px;height:62px;'>";
+                                            }
+                                            echo "</td>
+                                            </form>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>";
+                        }
+                        echo "
                         <tr>
                             <td style='width:1185px;height:42px;'>
                                 <center><b>COMENTAR</b><center> 
